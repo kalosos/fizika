@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расстояние до звезд</title>
+    <style>
+        body { background-image: "i.jpeg"; font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { margin: 10px; padding: 10px; font-size: 16px; }
+    </style>
+    <script>
+        function calculateDistance() {
+            let parallax = parseFloat(document.getElementById('parallax').value);
+            if (parallax > 0) {
+                let distance = 1 / parallax;
+                let lightYears = distance * 3.26156;
+  let meters = distance * 30858776000000;
+                document.getElementById('result').innerText = Расстояние: ${distance.toFixed(2)} пк=${lightYears.toFixed(2)} световых лет=${meters.toFixed(2)} километров;
+            } else {
+                document.getElementById('result').innerText = 'Введите корректное значение параллакса';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Калькулятор расстояния до звезд</h1>
+    <p>Введите годичный параллакс (в угловых секундах):</p>
+    <input type="number" id="parallax" step="0.01" placeholder="Параллакс (в секундах)">
+    <button onclick="calculateDistance()">Рассчитать</button>
+    <p id="result"></p>
+</body>
+</html>
